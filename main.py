@@ -18,7 +18,7 @@ signal = np.sqrt(10) * (ret.rolling(10).mean() - ret.rolling(365).mean()) / ret.
 weights = np.tanh(signal)
 
 # 4. Compute the returns to the weights from previous step.
-weighted_returns = ret * weights
+weighted_returns = ret * weights.shift(1)
 print(weighted_returns)
 
 
